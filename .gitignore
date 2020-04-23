@@ -15,10 +15,6 @@
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 
-# Logs (Symfony4)
-/var/log/*
-!var/log/.gitkeep
-
 # Parameters
 /app/config/parameters.yml
 /app/config/parameters.ini
@@ -35,6 +31,8 @@
 /web/bundles/
 /web/uploads/
 
+/var/www/*
+
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
@@ -50,3 +48,7 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+.DS_Store
+.idea/
+docker-compose.override.yml
+.gitignore

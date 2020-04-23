@@ -1,0 +1,30 @@
+security:
+    providers:
+        user:
+            entity: { class: App\Entity\User, property: email }
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+            cost: 15
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|img|js)/
+            security: false
+        user:
+            pattern: ^(/$|/user|/page|/home/|/home$)
+            provider: user
+            anonymous: ~
+            logout:
+                invalidate_session: true
+                path: /user/logout
+                target: /
+            switch_user: true
+            guard:
+                authenticators:
+                    - App\Security\Guard\UserLoginAuthenticator
+    access_control:
+        - { path: ^/user/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/, roles: [ROLE_USER] }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+

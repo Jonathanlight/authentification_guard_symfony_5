@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ 'page.register.description'|trans }} {% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <!-- Body -->
+<div class="container">
+    <section class="my-5">
+        <h2 class="h1-responsive font-weight-bold text-center my-5"> Inscription </h2> <hr>
+        {% include 'composant/messageFlash.html.twig' %}
+        <div class="row">
+            <div class="col-md-6 mb-lg-0 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_widget(form.genre) }}
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            {{ form_widget(form.nom) }}
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            {{ form_widget(form.prenom) }}
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'form.action.password' }}) }}
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'form.action.newPassword'}}) }}
+                        </div>
+                        <div class="form-group custom-control custom-checkbox text-center">
+                            {{ form_widget(form.hasValidatedCGU) }}
+                            {{ form_label(form.hasValidatedCGU) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.submit) }}
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <img src="https://i.pinimg.com/originals/21/2e/ff/212eff7fa9da81b393b6a2501deeaf55.jpg" class="img-fluid" title="image" alt="smaple image">
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

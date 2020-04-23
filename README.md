@@ -19,7 +19,10 @@
 
 ```
 git clone https://github.com/jonathankablan/authentification_guard_symfony_5.git
+
 cd authentification_guard_symfony_5/app/symfony
+
+php composer install
 ```
 
 ### Installation front-end
